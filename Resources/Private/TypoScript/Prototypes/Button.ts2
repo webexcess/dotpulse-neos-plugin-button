@@ -1,0 +1,44 @@
+prototype(Button:Button) < prototype(Content) {
+	link = ${q(node).property('link')}
+
+	@context {
+		configuration = ${Configuration.setting('Dotpulse.Button')}
+		aligin = ${q(node).property('aligin') != 'block' ? q(node).property('aligin') : ''}
+		needContainer = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') || aligin}
+		link = ${this.link}
+		linkSchema = ${Neos.Link.getScheme(this.link)}
+	}
+
+	attributes {
+		class = Fusion:RawArray {
+			@process.nodeType >
+			btn = ${configuration.btnClass}
+			element = ${configuration.btnClass + '-element'}
+			style = ${configuration.btnClass + '-' + (q(node).property('style') ? q(node).property('style') : 'secondary') + (q(node).property('outline') ? '-outline' : '')}
+			large = ${q(node).property('large') ? configuration.largeClass : false}
+			block = ${q(node).property('aligin') == 'block' ? configuration.bleedClass : false}
+			margin = ${q(node).property('bigmargin') ? configuration.marginClass : false}
+			type = Button:LinkType {
+				@process.wrap = ${'btn-type-' + value}
+			}
+		}
+		href = ${link}
+		href.@process.convertUris = ConvertUris
+		target = Button:LinkTarget
+	}
+
+	containerOpenTag = Fusion:Tag {
+		@if.needContainer = ${needContainer}
+		tag = 'div'
+		omitClosingTag = true
+		attributes.class = Fusion:RawArray {
+			container = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') ? 'container' : false}
+			btn = 'btn-container'
+			aligin = ${aligin ? 'text-xs-' + aligin : ''}
+		}
+	}
+	containerCloseTag = ${'</div>'}
+	containerCloseTag.@if.needContainer = ${needContainer}
+
+	@process.buttonWrap = ${this.containerOpenTag + value + this.containerCloseTag}
+}

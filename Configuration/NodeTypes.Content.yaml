@@ -2,6 +2,7 @@
   superTypes:
     'TYPO3.Neos:Content': TRUE
     'TYPO3.Neos.NodeTypes:LinkMixin': TRUE
+  label: "${String.cropAtWord(String.trim(String.stripTags(String.pregReplace(q(node).property('title') || q(node).property('text') || q(node).property('buttontext') || ((I18n.translate(node.nodeType.label) || node.nodeType.name) + (node.autoCreated ? ' (' + node.name + ')' : '')), '/<br\\W*?\\/?>|\\x{00a0}|[[^:print:]]|\\s+/u', ' '))), 100, '...')}"
   ui:
     label: Button
     group: general

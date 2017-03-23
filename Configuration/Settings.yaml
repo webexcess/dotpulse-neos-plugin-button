@@ -10,3 +10,5 @@ Dotpulse:
     bleedClass: btn-block
     largeClass: btn-lg
     marginClass: btn-margin
+    externalTarget: _blank
+    assetExternal: 'image,pdf'
