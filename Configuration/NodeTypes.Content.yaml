@@ -8,7 +8,8 @@
     inspector:
       groups:
         settings:
-          label: 'Buttons settings'
+          label: 'Button settings'
+          icon: icon-cog
           position: 50
   properties:
     style:
@@ -23,9 +24,8 @@
           editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: Default
+            allowEmpty: TRUE
             values:
-              '':
-                label: ''
               primary:
                 label: 'Primary button'
               link:
@@ -42,9 +42,8 @@
           editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: Default
+            allowEmpty: TRUE
             values:
-              '':
-                label: ''
               left:
                 label: 'Left'
               center:

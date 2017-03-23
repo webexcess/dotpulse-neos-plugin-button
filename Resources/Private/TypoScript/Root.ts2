@@ -1,9 +1,9 @@
 prototype(Dotpulse.Button:Button) < prototype(TYPO3.Neos:Content) {
-	@override.configuration = ${Configuration.setting('Dotpulse.Button')}
-	@override.aligin = ${q(node).property('aligin') != 'block' ? q(node).property('aligin') : ''}
-	@override.needContainer = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') || aligin}
-	@override.link = ${q(node).property('link')}
-	@override.linkSchema = ${Neos.Link.getScheme(link)}
+	@context.configuration = ${Configuration.setting('Dotpulse.Button')}
+	@context.aligin = ${q(node).property('aligin') != 'block' ? q(node).property('aligin') : ''}
+	@context.needContainer = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') || aligin}
+	@context.link = ${q(node).property('link')}
+	@context.linkSchema = ${Neos.Link.getScheme(link)}
 	linkSchema = ${Neos.Link.getScheme(q(node).property('link'))}
 
 	attributes {
