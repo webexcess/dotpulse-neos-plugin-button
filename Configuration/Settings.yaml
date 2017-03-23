@@ -2,7 +2,7 @@ TYPO3:
   Neos:
     typoScript:
       autoInclude:
-        'Dotpulse.Button': true
+        'Dotpulse.Button': TRUE
 
 Dotpulse:
   Button:

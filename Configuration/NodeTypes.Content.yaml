@@ -20,7 +20,7 @@
         inspector:
           group: settings
           position: 200
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: Default
             values:
@@ -39,7 +39,7 @@
         inspector:
           group: settings
           position: 300
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: Default
             values:
@@ -64,7 +64,7 @@
     buttontext:
       type: string
       ui:
-        inlineEditable: true
+        inlineEditable: TRUE
         aloha:
           placeholder: 'Please enter text'
           format: []
@@ -73,8 +73,8 @@
           list: []
           alignment: []
           formatlesspaste:
-            button: false
-            formatlessPasteOption: true
+            button: FALSE
+            formatlessPasteOption: TRUE
     link:
       ui:
         inspector:
