@@ -1,0 +1,39 @@
+prototype(Dotpulse.Button:Button) < prototype(TYPO3.Neos:Content) {
+	@override.configuration = ${Configuration.setting('Dotpulse.Button')}
+	@override.aligin = ${q(node).property('aligin') != 'block' ? q(node).property('aligin') : ''}
+	@override.needContainer = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') || aligin}
+	@override.link = ${q(node).property('link')}
+	@override.linkSchema = ${Neos.Link.getScheme(link)}
+	linkSchema = ${Neos.Link.getScheme(q(node).property('link'))}
+
+	attributes {
+		class = TYPO3.TypoScript:RawArray {
+			@process.nodeType >
+			btn = ${configuration.btnClass}
+			element = ${configuration.btnClass + '-element'}
+			style = ${configuration.btnClass + '-' + (q(node).property('style') ? q(node).property('style') : 'secondary') + (q(node).property('outline') ? '-outline' : '')}
+			large = ${q(node).property('large') ? configuration.largeClass : false}
+			block = ${q(node).property('aligin') == 'block' ? configuration.bleedClass : false}
+			margin = ${q(node).property('bigmargin') ? configuration.marginClass : false}
+		}
+		href = ${link}
+		href.@process.convertUris = TYPO3.Neos:ConvertUris
+		target = '_blank'
+		target.@if.isNotNode = ${Neos.Link.getScheme(q(node).property('link')) == 'node' ? false : true}
+	}
+
+	containerOpenTag = TYPO3.TypoScript:Tag {
+		@if.needContainer = ${needContainer}
+		tag = 'div'
+		omitClosingTag = true
+		attributes.class = TYPO3.TypoScript:RawArray {
+			container = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') ? 'container' : false}
+			btn = 'btn-container'
+			aligin = ${aligin ? 'text-' + aligin : ''}
+		}
+	}
+	containerCloseTag = ${'</div>'}
+	containerCloseTag.@if.needContainer = ${needContainer}
+
+	@process.buttonWrap = ${this.containerOpenTag + value + this.containerCloseTag}
+}

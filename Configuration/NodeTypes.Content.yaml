@@ -1,0 +1,82 @@
+'Dotpulse.Button:Button':
+  superTypes:
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos.NodeTypes:LinkMixin': TRUE
+  ui:
+    label: Button
+    group: general
+    inspector:
+      groups:
+        settings:
+          label: 'Buttons settings'
+          position: 50
+  properties:
+    style:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Style'
+        reloadPageIfChanged: TRUE
+        inspector:
+          group: settings
+          position: 200
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: Default
+            values:
+              '':
+                label: ''
+              primary:
+                label: 'Primary button'
+              link:
+                label: 'Style as a link'
+    aligin:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Aliginment'
+        reloadPageIfChanged: TRUE
+        inspector:
+          group: settings
+          position: 300
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: Default
+            values:
+              '':
+                label: ''
+              left:
+                label: 'Left'
+              center:
+                label: 'Center'
+              right:
+                label: 'Right'
+              block:
+                label: 'Use full width'
+    outline:
+      type: boolean
+      ui:
+        label: 'Render outlined button'
+        reloadPageIfChanged: TRUE
+        inspector:
+          group: settings
+          position: 400
+    buttontext:
+      type: string
+      ui:
+        inlineEditable: true
+        aloha:
+          placeholder: 'Please enter text'
+          format: []
+          table: []
+          link: []
+          list: []
+          alignment: []
+          formatlesspaste:
+            button: false
+            formatlessPasteOption: true
+    link:
+      ui:
+        inspector:
+          group: settings
+          position: 100

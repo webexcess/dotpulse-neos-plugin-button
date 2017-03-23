@@ -1,0 +1,12 @@
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        'Dotpulse.Button': true
+
+Dotpulse:
+  Button:
+    btnClass: btn
+    bleedClass: btn-block
+    largeClass: btn-lg
+    marginClass: btn-margin

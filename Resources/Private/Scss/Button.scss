@@ -1,0 +1,149 @@
+// scss-lint:disable QualifyingElement
+@mixin button-ghost($color, $hover, $background) {
+	// scss-lint:disable ImportantRule
+	background: transparent;
+	color: $color !important;
+	border-color: $color;
+
+	&:hover,
+	&:focus,
+	&:active,
+	.open > &.dropdown-toggle {
+		color: $hover !important;
+		background-color: $background;
+		border-color: $background;
+		outline: none;
+	}
+
+	&:active,
+	.open > &.dropdown-toggle {
+		background-image: none;
+	}
+
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&.focus,
+		&:active,
+		&.active {
+			color: $color !important;
+			background-color: transparent;
+		}
+	}
+}
+
+.btn {
+	@include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $line-height, $btn-border-radius);
+	display: inline-block;
+	font-weight: $btn-font-weight;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	border: $input-btn-border-width solid transparent;
+	transition: all 0.2s ease-in-out;
+
+	&:active:focus {
+		@include tab-focus();
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+	}
+
+	&:active {
+		background-image: none;
+		outline: 0;
+	}
+
+	&:disabled,
+	&[disabled],
+	&.disabled {
+		cursor: $cursor-disabled;
+		opacity: 0.65;
+		box-shadow: none;
+	}
+}
+
+a.btn.disabled,
+fieldset[disabled] a.btn {
+	pointer-events: none;
+}
+
+%btn-primary {
+	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+%btn-secondary {
+	@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+%btn-primary-outline {
+	@include button-outline-variant($btn-primary-bg);
+}
+
+%btn-secondary-outline {
+	@include button-outline-variant($btn-secondary-border);
+}
+
+// Make a button look and behave like a link
+%btn-link,
+%btn-link-outline {
+	font-weight: normal;
+	color: $link-color;
+	border-radius: 0;
+
+	&,
+	&:active,
+	&.active,
+	&:disabled {
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	&:hover {
+		border-color: transparent;
+	}
+
+	&:hover,
+	&:focus {
+		color: $link-hover-color;
+		text-decoration: $link-hover-decoration;
+		background-color: transparent;
+	}
+
+	&,
+	&:focus,
+	&:active {
+		border-color: transparent;
+	}
+
+	&:disabled {
+		&:hover,
+		&:focus {
+			color: $btn-link-disabled-color;
+			text-decoration: none;
+		}
+	}
+}
+
+%btn-lg {
+	// line-height: ensure even-numbered height of button next to large input
+	@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $line-height-lg, $btn-border-radius-lg);
+}
+
+%btn-block {
+	display: block;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+%btn-element {
+	margin-bottom: 1em;
+}
