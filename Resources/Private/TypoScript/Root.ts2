@@ -29,7 +29,7 @@ prototype(Dotpulse.Button:Button) < prototype(TYPO3.Neos:Content) {
 		attributes.class = TYPO3.TypoScript:RawArray {
 			container = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') ? 'container' : false}
 			btn = 'btn-container'
-			aligin = ${aligin ? 'text-' + aligin : ''}
+			aligin = ${aligin ? 'text-xs-' + aligin : ''}
 		}
 	}
 	containerCloseTag = ${'</div>'}
