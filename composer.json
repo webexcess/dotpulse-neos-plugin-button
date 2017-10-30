@@ -1,10 +1,9 @@
 {
     "name": "dotpulse/button",
-    "type": "typo3-flow-plugin",
+    "type": "neos-plugin",
     "description": "Add buttons as contentelements",
-    "version": "2.2.0",
     "require": {
-        "typo3/neos-nodetypes": "2.*"
+        "neos/nodetypes": "3.*"
     },
     "autoload": {
         "psr-0": {

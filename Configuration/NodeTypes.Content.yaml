@@ -1,7 +1,7 @@
 'Dotpulse.Button:Button':
   superTypes:
-    'TYPO3.Neos:Content': TRUE
-    'TYPO3.Neos.NodeTypes:LinkMixin': TRUE
+    'Neos.Neos:Content': TRUE
+    'Neos.NodeTypes:LinkMixin': TRUE
   label: "${String.cropAtWord(String.trim(String.stripTags(String.pregReplace(q(node).property('title') || q(node).property('text') || q(node).property('buttontext') || ((I18n.translate(node.nodeType.label) || node.nodeType.name) + (node.autoCreated ? ' (' + node.name + ')' : '')), '/<br\\W*?\\/?>|\\x{00a0}|[[^:print:]]|\\s+/u', ' '))), 100, '...')}"
   ui:
     label: Button
@@ -22,7 +22,7 @@
         inspector:
           group: settings
           position: 200
-          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: Default
             allowEmpty: TRUE
@@ -40,7 +40,7 @@
         inspector:
           group: settings
           position: 300
-          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: Default
             allowEmpty: TRUE

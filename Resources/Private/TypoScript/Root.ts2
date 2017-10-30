@@ -1,4 +1,0 @@
-namespace: Fusion=TYPO3.TypoScript
-namespace: Button=Dotpulse.Button
-
-include: Prototypes/**/*.ts2

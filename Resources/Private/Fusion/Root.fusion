@@ -1,0 +1,4 @@
+namespace: Fusion=Neos.Fusion
+namespace: Button=Dotpulse.Button
+
+include: Prototypes/**/*.fusion
