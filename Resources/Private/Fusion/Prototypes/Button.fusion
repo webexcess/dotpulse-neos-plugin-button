@@ -4,7 +4,7 @@ prototype(Button:Button) < prototype(Content) {
 	@context {
 		configuration = ${Configuration.setting('Dotpulse.Button')}
 		aligin = ${q(node).property('aligin') != 'block' ? q(node).property('aligin') : ''}
-		needContainer = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') || aligin}
+		needContainer = ${q(node).parent().parent().is('[instanceof Neos.Neos:Document]') || aligin}
 		link = ${this.link}
 		linkSchema = ${Neos.Link.getScheme(this.link)}
 	}
@@ -32,7 +32,7 @@ prototype(Button:Button) < prototype(Content) {
 		tag = 'div'
 		omitClosingTag = true
 		attributes.class = Fusion:RawArray {
-			container = ${q(node).parent().parent().is('[instanceof TYPO3.Neos:Document]') ? 'container' : false}
+			container = ${q(node).parent().parent().is('[instanceof Neos.Neos:Document]') ? 'container' : false}
 			btn = 'btn-container'
 			aligin = ${aligin ? 'text-xs-' + aligin : ''}
 		}
